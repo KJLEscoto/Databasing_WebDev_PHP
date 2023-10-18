@@ -38,19 +38,8 @@
           <?php echo $row['last_name']; ?></td>
         <td class="capitalize"><?php echo $row['gender']; ?></td>
         <td>
-
-          <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['edit-user'])) {
-        header("location: user/edit-user.php");
-        exit;
-    }
-}
-?>
-          <form method="post">
-            <input type="submit" name="edit-user" value="Edit">
-          </form>
-          <a href="">Delete</a>
+          <a href="user/edit-user.php?id=<?php echo $row['id']; ?>">Edit</a>
+          <a href="user/delete-user.php?id=<?php echo $row['id']; ?>">Delete</a>
         </td>
       </tr>
       <?php } ?>
