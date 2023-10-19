@@ -8,10 +8,10 @@
   <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body>
-  <a href="../index.php">
+<body class="body-add">
+  <a class="back" href="../index.php">
     < Back</a>
-      <h3>Add New User</h3>
+      <h3>Add User</h3>
       <form action="../php/user/save-user.php" method="POST">
         <div>
           <label>First Name:</label><br>
@@ -25,13 +25,15 @@
         <br>
         <div>
           <label>Gender:</label><br>
-          <input type="radio" name="gender" value="male" checked> Male
-          <input type="radio" name="gender" value="female"> Female
-          <input type="radio" name="gender" value="other"> Other
+          <input id="red" type="radio" name="gender" value="male" checked> Male
+          <br>
+          <input id="red" type="radio" name="gender" value="female"> Female
+          <br>
+          <input id="red" type="radio" name="gender" value="other"> Other
         </div>
         <br>
         <div>
-          <button type="submit">Save</button>
+          <button class="save" type="submit">Save</button>
         </div>
       </form>
 </body>

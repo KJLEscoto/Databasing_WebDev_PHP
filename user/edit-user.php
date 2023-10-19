@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <a href="../index.php">
+  <a class="back" href="../index.php">
     < Back</a>
       <h3>Edit User</h3>
       <?php
@@ -29,16 +29,19 @@
         <br>
         <div>
           <label>Gender:</label><br>
-          <input type="radio" name="gender" value="male" <?php if($row['gender'] == 'male') echo 'checked'; ?>> Male
-          <input type="radio" name="gender" value="female" value="male"
+          <input id="red" type="radio" name="gender" value="male" <?php if($row['gender'] == 'male') echo 'checked'; ?>>
+          Male
+          <br>
+          <input id="red" type="radio" name="gender" value="female" value="male"
             <?php if($row['gender'] == 'female') echo 'checked'; ?>> Female
-          <input type="radio" name="gender" value="other" value="male"
+          <br>
+          <input id="red" type="radio" name="gender" value="other" value="male"
             <?php if($row['gender'] == 'other') echo 'checked'; ?>> Other
         </div>
         <br>
         <div>
           <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-          <button type="submit">Update</button>
+          <button class="save" type="submit">Update</button>
         </div>
       </form>
       <?php } ?>

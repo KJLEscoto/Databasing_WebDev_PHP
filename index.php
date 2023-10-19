@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <h3>Users</h3>
+  <h3>List of Users</h3>
   <p>
     <?php
     session_start();
@@ -17,18 +17,19 @@
     if (isset($_SESSION["save-success"]) && $_SESSION["save-success"]) {
         echo '<div class="notification success">Successfully saved!</div>';
         unset($_SESSION["save-success"]);
-    } else if (isset($_GET['delete-success'])) {
-      echo '<div class="notification success">Deleted successfully!</div>';
     } else if (isset($_SESSION["updated-success"])) {
       $updatedUserId = $_SESSION["updated-success"];
-      echo '<div class="notification success">User ID ' . $updatedUserId . ' - Updated Successfully!</div';
+      echo '<div class="notification success">User ID ' . $updatedUserId . ' - Updated!</div';
       unset($_SESSION["updated-success"]);
-    }
+    } else if (isset($_SESSION["delete-success"]) && $_SESSION["delete-success"]) {
+      echo '<div class="notification success">Deleted successfully!</div>';
+      unset($_SESSION["delete-success"]);
+  }
     ?>
   </p>
 
   <h4>
-    <a href="user/add-user.php">+ Add New User</a>
+    <a class="add" href="user/add-user.php">+ Add New User</a>
   </h4>
   <table>
     <thead>
@@ -43,13 +44,13 @@
       while ($row = $result->fetch_assoc()) {
       ?>
       <tr>
-        <td><?php echo $row['id']; ?></td>
-        <td class="capitalize"><?php echo $row['last_name']; ?>,
-          <?php echo $row['first_name']; ?></td>
-        <td class="capitalize"><?php echo $row['gender']; ?></td>
-        <td>
+        <td class="center"><?php echo $row['id']; ?></td>
+        <td class="capitalize"><?php echo $row['first_name']; ?>
+          <?php echo $row['last_name']; ?></td>
+        <td class="capitalize center"><?php echo $row['gender']; ?></td>
+        <td class="center">
           <a class="capitalize" href="user/edit-user.php?id=<?php echo $row['id']; ?>">edit</a>
-          <a class="capitalize" href="user/delete-user.php?id=<?php echo $row['id']; ?>">delete</a>
+          <a class="capitalize" href="php/user/delete-user.php?id=<?php echo $row['id']; ?>">delete</a>
         </td>
       </tr>
       <?php } ?>
@@ -62,7 +63,7 @@
   if (notification) {
     setTimeout(function() {
       notification.classList.add('hidden');
-    }, 3000);
+    }, 1000);
   }
   </script>
 
