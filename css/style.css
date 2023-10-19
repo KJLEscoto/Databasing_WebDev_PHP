@@ -1,5 +1,6 @@
 body {
   font-family: sans-serif;
+  background-color: gainsboro;
 }
 
 .capitalize {
@@ -27,11 +28,15 @@ td {
 }
 
 tr:nth-child(even) {
-  background-color: #f2f2f2;
+  background-color: #cfcdcd;
+}
+
+tr:nth-child(odd) {
+  background-color: #ede9e9;
 }
 
 tr:hover {
-  background-color: #ddd;
+  background-color: #d7aaaa;
 }
 
 th {
@@ -40,4 +45,23 @@ th {
   text-align: left;
   background-color: #800000;
   color: white;
+}
+
+.notification {
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.success {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.hidden {
+  opacity: 0;
+  display: none;
 }

@@ -9,38 +9,39 @@
 </head>
 
 <body>
-  <a href="../index.php">Back</a>
-  <h3>Edit User</h3>
-  <?php
+  <a href="../index.php">
+    < Back</a>
+      <h3>Edit User</h3>
+      <?php
   require('../php/user/user.php');
   while($row = $result->fetch_assoc()) {
   ?>
-  <form action="../php/user/update-user.php" method="POST">
-    <div>
-      <label>First Name:</label><br>
-      <input type="text" name="first_name" value="<?php echo $row['first_name']; ?>">
-    </div>
-    <br>
-    <div>
-      <label>Last Name:</label><br>
-      <input type="text" name="last_name" value="<?php echo $row['last_name']; ?>">
-    </div>
-    <br>
-    <div>
-      <label>Gender:</label><br>
-      <input type="radio" name="gender" value="male" <?php if($row['gender'] == 'male') echo 'checked'; ?>> Male
-      <input type="radio" name="gender" value="female" value="male"
-        <?php if($row['gender'] == 'female') echo 'checked'; ?>> Female
-      <input type="radio" name="gender" value="other" value="male"
-        <?php if($row['gender'] == 'other') echo 'checked'; ?>> Other
-    </div>
-    <br>
-    <div>
-      <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-      <button type="submit">Update</button>
-    </div>
-  </form>
-  <?php } ?>
+      <form action="../php/user/update-user.php" method="POST">
+        <div>
+          <label>First Name:</label><br>
+          <input type="text" name="first_name" value="<?php echo $row['first_name']; ?>">
+        </div>
+        <br>
+        <div>
+          <label>Last Name:</label><br>
+          <input type="text" name="last_name" value="<?php echo $row['last_name']; ?>">
+        </div>
+        <br>
+        <div>
+          <label>Gender:</label><br>
+          <input type="radio" name="gender" value="male" <?php if($row['gender'] == 'male') echo 'checked'; ?>> Male
+          <input type="radio" name="gender" value="female" value="male"
+            <?php if($row['gender'] == 'female') echo 'checked'; ?>> Female
+          <input type="radio" name="gender" value="other" value="male"
+            <?php if($row['gender'] == 'other') echo 'checked'; ?>> Other
+        </div>
+        <br>
+        <div>
+          <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+          <button type="submit">Update</button>
+        </div>
+      </form>
+      <?php } ?>
 </body>
 
 </html>
